@@ -5,13 +5,15 @@ Version:	2.2.2
 Release:	1
 Group:		X11/Window Managers/Tools
 License:	GPL
-Source0:	http://prdownloads.sourceforge.net/ksetiwatch/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/ksetiwatch/%{name}-%{version}.tar.gz
 URL:		http://ksetiwatch.sourceforge.net/
-BuildRequires:	qt-devel >= 2.2
+BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
+BuildRequires:	qt-devel >= 2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 Ksetiwatch is a KDE aplication which allows you to see how many units
@@ -26,6 +28,8 @@ nieba.
 %setup -q
 
 %build
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure2_13
 
 %{__make}
@@ -35,15 +39,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name} --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README ChangeLog TODO AUTHORS %{name}/docs/en/{*.html,*.png}
+%doc README ChangeLog TODO AUTHORS
 %{_applnkdir}/Applications/*
-%{_datadir}/apps/%{name}/pics/*
-%{_datadir}/apps/%{name}/sounds/*
-%{_datadir}/icons/locolor
-%{_datadir}/locale
+%{_datadir}/apps/ksetiwatch
+%{_pixmapsdir}/*/*/apps/*
 %attr(755,root,root) %{_bindir}/*
