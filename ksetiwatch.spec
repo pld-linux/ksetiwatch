@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}.tar
 # Source0-md5:	be4f3c1cbcec639b3f27a1216c8656b5
 Source1:	%{name}.png
 URL:		http://ksetiwatch.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0
 Requires:	setiathome
