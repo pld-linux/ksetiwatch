@@ -1,15 +1,15 @@
 Summary:	SETI@home client statistics monitor for KDE
 Summary(pl):	Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
-Version:	2.2.2
+Version:	2.5.0
 Release:	2
-License:	GPL
 Group:		X11/Window Managers/Tools
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/ksetiwatch/%{name}-%{version}.tar.gz
+License:	GPL
+Source0:	http://unc.dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}-1.tar.bz2
 URL:		http://ksetiwatch.sourceforge.net/
 BuildRequires:	fam-devel
-BuildRequires:	kdelibs-devel
-BuildRequires:	qt-devel >= 2.2
+BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	qt-devel >= 3.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -30,14 +30,17 @@ nieba.
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
-%configure2_13
+
+%configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/ksetiwatch.desktop
 
 %find_lang %{name} --with-kde
 
@@ -47,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc README ChangeLog TODO AUTHORS
-%{_applnkdir}/Applications/*
+%attr(755,root,root) %{_bindir}/ksetiwatch
 %{_datadir}/apps/ksetiwatch
-%{_pixmapsdir}/*/*/apps/*
-%attr(755,root,root) %{_bindir}/*
+%{_pixmapsdir}/*/*/*/*
+%{_applnkdir}/Utilities/ksetiwatch.desktop
