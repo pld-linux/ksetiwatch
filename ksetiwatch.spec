@@ -11,9 +11,6 @@ BuildRequires:	qt-devel >= 3.0.3
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-
 %description
 Ksetiwatch is a KDE aplication which allows you to see how many units
 have you done. There is nice map of the sky inside.
