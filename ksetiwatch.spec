@@ -1,12 +1,12 @@
 Summary:	SETI@home client statistics monitor for KDE
 Summary(pl):	Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
-Version:	2.6.1
+Version:	3.0.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-# Source0-md5:	cfbb50aa3778414c8555aaa8407b6dc8
 Source0:	http://dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}.tar.bz2
+# Source0-md5:	be4f3c1cbcec639b3f27a1216c8656b5
 Source1:	%{name}.png
 URL:		http://ksetiwatch.sourceforge.net/
 BuildRequires:	fam-devel
