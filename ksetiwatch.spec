@@ -43,19 +43,14 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/ksetiwatch.desktop
 
+%find_lang ksetiwatch --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f ksetiwatch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ksetiwatch
-%lang(en) %{_htmldir}/en/ksetiwatch/*
-%lang(es) %{_htmldir}/es/ksetiwatch/*
-%lang(fr) %{_htmldir}/fr/ksetiwatch/*
 %{_datadir}/apps/ksetiwatch
 %{_pixmapsdir}/*/*/*/*
 %{_applnkdir}/Utilities/ksetiwatch.desktop
-%lang(de) %{_datadir}/locale/de/LC_MESSAGES/ksetiwatch.mo
-%lang(es) %{_datadir}/locale/es/LC_MESSAGES/ksetiwatch.mo
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/ksetiwatch.mo
-%lang(hr) %{_datadir}/locale/hr/LC_MESSAGES/ksetiwatch.mo
