@@ -2,10 +2,11 @@ Summary:	SETI@home client statistics monitor for KDE
 Summary(pl):	Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
 Version:	2.5.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://unc.dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}-1.tar.bz2
+Source1:	%{name}.png
 URL:		http://ksetiwatch.sourceforge.net/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0
@@ -41,6 +42,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/ksetiwatch.desktop
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/apps/ksetiwatch.png
 
 %find_lang %{name} --with-kde
 
@@ -52,5 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog TODO AUTHORS
 %attr(755,root,root) %{_bindir}/ksetiwatch
 %{_datadir}/apps/ksetiwatch
-%{_pixmapsdir}/*/*/*/*
+%{_pixmapsdir}/ksetiwatch.png
 %{_applnkdir}/Utilities/ksetiwatch.desktop
