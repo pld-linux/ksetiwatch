@@ -4,8 +4,6 @@ Name:		ksetiwatch
 Version:	2.2.2
 Release:	1
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 License:	GPL
 Source0:	http://prdownloads.sourceforge.net/ksetiwatch/%{name}-%{version}.tar.gz
 URL:		http://ksetiwatch.sourceforge.net
