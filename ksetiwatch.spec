@@ -29,6 +29,7 @@ nieba.
 %setup -q
 
 %build
+cp /usr/share/automake/config.sub admin/
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
