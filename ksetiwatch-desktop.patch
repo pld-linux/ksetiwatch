@@ -1,16 +1,16 @@
 --- ksetiwatch-3.0.0/ksetiwatch/ksetiwatch.desktop~	Sat Jul 17 07:31:43 2004
 +++ ksetiwatch-3.0.0/ksetiwatch/ksetiwatch.desktop	Sat Jul 17 07:33:06 2004
-@@ -7,7 +7,12 @@
+@@ -7,6 +7,12 @@
  DocPath=ksetiwatch/index.html
  GenericName=SETI@home monitoring tool
  GenericName[de]=SETI@home-Monitorprogramm
+-Terminal=0
 +Comment=SETI@home monitoring tool
 +Comment[de]=SETI@home-Monitorprogramm
 +Comment[pl]=Program monitorujący SETI@home
- Terminal=false
++Terminal=false
  Name=Ksetiwatch
  Name[de]=Ksetiwatch
--Categories=Utility;
 +Categories=Qt;KDE;Utility;
 +Encoding=UTF-8
 +# vi: encoding=utf-8
