@@ -5,7 +5,7 @@ Version:	3.0.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/ksetiwatch/%{name}-%{version}.tar.bz2
 # Source0-md5:	fa9bb1997e1bbf946302c27803b1ac71
 Source1:	%{name}.png
 Patch0:		%{name}-desktop.patch
