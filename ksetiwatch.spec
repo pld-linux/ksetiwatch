@@ -13,10 +13,9 @@ URL:		http://ksetiwatch.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	setiathome
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 Ksetiwatch is a KDE aplication which allows you to see how many units
@@ -33,7 +32,7 @@ nieba.
 
 %build
 cp -f /usr/share/automake/config.sub admin
-kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure \
 	--with-qt-libraries=%{_libdir}
 
