@@ -6,7 +6,7 @@ Release:	1
 Group:		X11/Window Managers/Tools
 License:	GPL
 Source0:	http://prdownloads.sourceforge.net/ksetiwatch/%{name}-%{version}.tar.gz
-URL:		http://ksetiwatch.sourceforge.net
+URL:		http://ksetiwatch.sourceforge.net/
 BuildRequires:	qt-devel >= 2.2
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,14 +35,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README ChangeLog TODO AUTHORS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,ChangeLog,TODO,AUTHORS}.gz %{name}/docs/en/{*.html,*.png}
+%doc README ChangeLog TODO AUTHORS %{name}/docs/en/{*.html,*.png}
 %{_applnkdir}/Applications/*
 %{_datadir}/apps/%{name}/pics/*
 %{_datadir}/apps/%{name}/sounds/*
