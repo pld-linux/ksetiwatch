@@ -2,7 +2,7 @@ Summary:	SETI@home client statistics monitor for KDE
 Summary(pl):	Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
 Version:	3.0.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/sourceforge/ksetiwatch/%{name}-%{version}.tar.bz2
@@ -29,24 +29,28 @@ nieba.
 %prep
 %setup -q
 
-%build
-cp /usr/share/automake/config.sub admin/
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
+%{__perl} -pi -e 's/Terminal=0/Terminal=false/' ksetiwatch/ksetiwatch.desktop
+echo -e 'Categories=Utility;' >> ksetiwatch/ksetiwatch.desktop
 
-%configure
+%build
+cp -f /usr/share/automake/config.sub admin
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+%configure \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications,Utilities}/ksetiwatch.desktop
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_appsdir=%{_desktopdir}
+
+mv $RPM_BUILD_ROOT%{_desktopdir}/{Applications,}/ksetiwatch.desktop
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/apps/ksetiwatch.png
+rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
 %find_lang %{name} --with-kde
 
@@ -59,4 +63,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ksetiwatch
 %{_datadir}/apps/ksetiwatch
 %{_pixmapsdir}/ksetiwatch.png
-%{_applnkdir}/Utilities/ksetiwatch.desktop
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_desktopdir}/ksetiwatch.desktop
