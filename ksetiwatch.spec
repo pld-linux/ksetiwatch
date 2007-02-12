@@ -1,5 +1,5 @@
 Summary:	SETI@home client statistics monitor for KDE
-Summary(pl):	Monitor statystyk klienta SETI@home dla KDE
+Summary(pl.UTF-8):   Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
 Version:	3.0.1
 Release:	1
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Ksetiwatch is a KDE aplication which allows you to see how many units
 have you done. There is nice map of the sky inside.
 
-%description -l pl
-Ksetiwatch jest programem pod KDE, który pozwala ogl±daæ swoje postêpy
+%description -l pl.UTF-8
+Ksetiwatch jest programem pod KDE, ktÃ³ry pozwala oglÄ…daÄ‡ swoje postÄ™py
 w liczeniu jednostek SETI@home. Wartym zobaczenia elementem jest mapa
 nieba.
 
