@@ -1,5 +1,5 @@
 Summary:	SETI@home client statistics monitor for KDE
-Summary(pl.UTF-8):   Monitor statystyk klienta SETI@home dla KDE
+Summary(pl.UTF-8):	Monitor statystyk klienta SETI@home dla KDE
 Name:		ksetiwatch
 Version:	3.0.1
 Release:	1
